@@ -1,10 +1,11 @@
 from django.shortcuts import render
-
+from datetime import date
 # Create your views here.
 
 
 def today(requset):
-    return render("", 'home/today.html')
+    today_date = date.today()
+    return render("", 'home/today.html', {"today": today_date})
 
 
 def password(requset):
