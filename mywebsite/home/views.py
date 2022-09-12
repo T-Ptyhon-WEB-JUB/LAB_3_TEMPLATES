@@ -1,8 +1,13 @@
 from django.shortcuts import render
 from datetime import date
-import os
+import random
+import string
 
 # Create your views here.
+
+
+def home(requset):
+    return render(requset, 'home/index.html')
 
 
 def today(requset):
@@ -11,7 +16,10 @@ def today(requset):
 
 
 def password(requset):
-    random_password = os.urandom(8)
+    # random_password = random.randrange(0, 100000000, 8)
+    random_password = ''.join(random.choices(
+        string.ascii_uppercase + string.digits, k=8))
+
     return render(requset, 'home/password.html', {"random_password": random_password})
 
 
