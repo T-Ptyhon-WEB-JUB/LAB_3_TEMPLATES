@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpRequest
 from datetime import date
 import random
 import string
@@ -6,12 +7,11 @@ import string
 # Create your views here.
 
 
-def home(requset):
+def home(requset: HttpRequest):
     return render(requset, 'home/index.html')
 
 
 def today(requset: HttpRequest):
-    pass  # means hold on
     today_date = date.today()
     return render(requset, 'home/today.html', {"today_date": today_date})
 
